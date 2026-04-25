@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book a session with Tyler Brown Photography." />
+  <title>Book a Session — Tyler Brown Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Tyler Brown</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="book.html">Book</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-hero">
+    <p class="section-label">Let's Create Together</p>
+    <h1 class="section-title" style="font-size:clamp(2.2rem,5vw,4rem);">Book a Session</h1>
+    <p class="page-hero-sub">Fill out the form and Tyler will be in touch within 48 hours.</p>
+  </div>
+
+  <section class="book-section">
+    <div class="book-inner">
+
+      <div class="book-info fade-in">
+        <h3>Services</h3>
+        <ul class="service-list">
+          <li><span>Portrait Session (1 hr)</span><span class="service-price">$[Price]</span></li>
+          <li><span>Extended Portrait (2 hr)</span><span class="service-price">$[Price]</span></li>
+          <li><span>Nature / Landscape</span><span class="service-price">Custom</span></li>
+          <li><span>Event Coverage</span><span class="service-price">Custom</span></li>
+          <li><span>Commercial / Product</span><span class="service-price">Custom</span></li>
+        </ul>
+
+        <h3>What to Expect</h3>
+        <p>
+          After submitting your inquiry, Tyler will reach out within 48 hours to discuss
+          your vision, availability, and details. A deposit is required to secure your date.
+        </p>
+
+        <h3>Delivery</h3>
+        <p>
+          Edited images are delivered via an online gallery within [X] days of the session.
+          You'll receive a download link with full-resolution files.
+        </p>
+
+        <h3>Location</h3>
+        <p>
+          Based in [City, State]. Available for local sessions and willing to travel
+          for the right project — just ask.
+        </p>
+      </div>
+
+      <!--
+        FORMSPREE SETUP:
+        1. Sign up free at https://formspree.io
+        2. Create a form, copy your form ID (e.g. "xpwzabcd")
+        3. In js/main.js find: const FORMSPREE_ID = 'YOUR_FORM_ID'
+        4. Replace with your actual ID — submissions go straight to Tyler's email
+      -->
+      <div class="contact-form fade-in">
+        <h3>Send an Inquiry</h3>
+        <form id="contact-form" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" name="first_name" required placeholder="Jane" />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last_name" required placeholder="Doe" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
+          </div>
+
+          <div class="form-group">
+            <label for="session-type">Session Type</label>
+            <select id="session-type" name="session_type" required>
+              <option value="" disabled selected>Select a service</option>
+              <option value="portrait-1hr">Portrait Session (1 hr)</option>
+              <option value="portrait-2hr">Extended Portrait (2 hr)</option>
+              <option value="nature">Nature / Landscape</option>
+              <option value="event">Event Coverage</option>
+              <option value="commercial">Commercial / Product</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" name="preferred_date" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell Me About Your Vision</label>
+            <textarea id="message" name="message" placeholder="Where are you thinking, what's the vibe, any special details..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-gold" style="width:100%;margin-top:0.5rem;text-align:center;">
+            Send Inquiry
+          </button>
+
+        </form>
+
+        <div class="form-success" id="form-success">
+          <p class="form-success-title">Thank you.</p>
+          <p>Your inquiry has been received. Tyler will be in touch within 48 hours.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-logo">Tyler Brown</span>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="book.html">Book</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2025 Tyler Brown Photography. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
