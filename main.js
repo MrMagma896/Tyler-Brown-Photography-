@@ -63,6 +63,21 @@ filterBtns.forEach(btn => {
   });
 });
 
+// ── IMAGE PROTECTION ──
+document.addEventListener('contextmenu', e => {
+  if (e.target.tagName === 'IMG') e.preventDefault();
+});
+
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') e.preventDefault();
+});
+
+document.addEventListener('dragstart', e => {
+  if (e.target.tagName === 'IMG') e.preventDefault();
+});
+
+document.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
+
 // ── CONTACT FORM ──
 const contactForm = document.getElementById('contact-form');
 const formSuccess = document.getElementById('form-success');

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Lobster&family=Lexend:wght@300;400;500;700&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -11,13 +11,14 @@
   --gold-muted: rgba(180,148,100,0.45);
   --forest:     #4a7c59;
   --moss:       #2d5c3e;
-  --parchment:  #e8dcc8;
-  --parchment-muted: rgba(232,220,200,0.45);
-  --parchment-dim:   rgba(232,220,200,0.22);
+  --parchment:  #ffffff;
+  --parchment-muted: rgba(255,255,255,0.78);
+  --parchment-dim:   rgba(255,255,255,0.55);
   --border-gold:   rgba(180,148,100,0.12);
   --border-forest: rgba(74,124,89,0.15);
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans:  'Jost', system-ui, sans-serif;
+  --font-serif: 'Caveat', 'Lobster', cursive;
+  --font-sans:  'Lexend', system-ui, sans-serif;
+  --font-brand: 'Lobster', 'Caveat', cursive;
   --ease: 0.35s ease;
 }
 
@@ -46,11 +47,11 @@ nav {
 .nav-logo {
   font-family: var(--font-serif);
   font-size: 1.15rem;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--parchment);
   text-decoration: none;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-transform: none;
 }
 
 .nav-links { display: flex; gap: 2.25rem; list-style: none; }
@@ -201,11 +202,11 @@ nav {
 .hero-title {
   font-family: var(--font-serif);
   font-size: clamp(3rem, 8vw, 6.5rem);
-  font-weight: 300;
+  font-weight: 700;
   line-height: 1.0;
   color: var(--parchment);
   margin-bottom: 1.25rem;
-  font-style: italic;
+  font-style: normal;
 }
 
 .hero-title em {
@@ -286,8 +287,8 @@ nav {
 .section-title {
   font-family: var(--font-serif);
   font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 700;
+  font-style: normal;
   color: var(--parchment);
   line-height: 1.15;
 }
@@ -561,9 +562,9 @@ footer {
   color: var(--parchment);
   margin-bottom: 1.25rem;
   display: block;
-  letter-spacing: 0.1em;
-  font-style: italic;
-  font-weight: 300;
+  letter-spacing: 0.02em;
+  font-style: normal;
+  font-weight: 700;
 }
 
 .footer-links {
@@ -720,8 +721,8 @@ footer {
 .about-page-text h2 {
   font-family: var(--font-serif);
   font-size: 1.5rem;
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 700;
+  font-style: normal;
   color: var(--parchment);
   margin: 2.25rem 0 0.75rem;
 }
@@ -772,8 +773,8 @@ footer {
 .book-info h3 {
   font-family: var(--font-serif);
   font-size: 1.2rem;
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 700;
+  font-style: normal;
   color: var(--parchment);
   margin: 2rem 0 0.6rem;
 }
@@ -813,8 +814,8 @@ footer {
 .contact-form h3 {
   font-family: var(--font-serif);
   font-size: 1.5rem;
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 700;
+  font-style: normal;
   color: var(--parchment);
   margin-bottom: 1.75rem;
 }
@@ -867,8 +868,8 @@ textarea { resize: vertical; min-height: 110px; }
 .form-success-title {
   font-family: var(--font-serif);
   font-size: 1.6rem;
-  font-style: italic;
-  font-weight: 300;
+  font-style: normal;
+  font-weight: 700;
   color: var(--parchment);
   margin-bottom: 0.75rem;
 }
@@ -998,4 +999,21 @@ textarea { resize: vertical; min-height: 110px; }
 
 .gallery-item .photo-placeholder {
   min-height: 180px;
+}
+
+/* ── IMAGE PROTECTION ── */
+img {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none; /* disables iOS long-press "Save Image" sheet */
+  user-select: none;
+}
+
+/* Remove pointer events from the img element itself so right-click
+   registers on the wrapper div, not the image — no "Save Image As" option */
+.gallery-item img,
+.photo-card img,
+.category-card img,
+.about-img-wrap img,
+.about-page-img-wrap img {
+  pointer-events: none;
 }
