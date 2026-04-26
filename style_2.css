@@ -587,6 +587,25 @@ footer {
 
 .footer-links a:hover { color: var(--gold); }
 
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.footer-socials a {
+  text-decoration: none;
+  color: var(--parchment-dim);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color var(--ease);
+}
+
+.footer-socials a:hover { color: var(--gold); }
+
 .footer-copy { font-size: 0.68rem; color: rgba(232,220,200,0.18); }
 
 /* ── PAGE HERO (inner pages) ── */
