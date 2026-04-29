@@ -45,10 +45,10 @@ nav {
 }
 
 .nav-logo {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--parchment);
+  font-family: 'Lobster', cursive;
+  font-size: 2.25rem;
+  font-weight: 400;
+  color: var(--gold);
   text-decoration: none;
   letter-spacing: 0.02em;
   text-transform: none;
