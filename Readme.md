@@ -1,9 +1,63 @@
-### Notes 
+# Tyler Brown Photography — Project Tracker
 
-Have multiple pages 
+A multi-page photography portfolio website for Tyler Brown, built with plain HTML, CSS, and JavaScript.
 
-incorporate some sort of wood baclkground tyler will share this with me. 
+---
 
-have a main page with about me,
-gallery page, 
-contact page
+## Pages
+
+| File | Purpose |
+|------|---------|
+| `index.html` | Home — hero, featured work, about preview, category browse |
+| `gallery.html` | Full filterable photo gallery (Wildlife / Nature / Portraits) |
+| `about.html` | About Tyler — bio, portrait photo, background |
+| `book.html` | Booking inquiry form (Formspree-powered) |
+| `style_2.css` | All styles (single shared stylesheet) |
+| `main.js` | Gallery filter logic, scroll animations, mobile nav |
+| `images/` | All image assets live here |
+
+---
+
+## Completed Tasks
+
+- [x] Full site structure built — 4 pages (Home, Gallery, About, Book)
+- [x] Shared navigation with mobile hamburger menu
+- [x] Hero section with CTA buttons (View Gallery, Book a Session)
+- [x] Featured work grid on home page
+- [x] About preview section on home page
+- [x] Browse by Category section (Wildlife, Nature, Portraits)
+- [x] Gallery page with filter buttons and masonry-style layout
+- [x] About page with portrait placeholder and bio text
+- [x] Booking page with full inquiry form (name, email, phone, session type, date, location, message)
+- [x] Footer across all pages
+- [x] Scroll fade-in animations
+- [x] Fixed header bug
+- [x] Fixed minor booking page errors
+- [x] Nav logo — updated to Lobster font, gold color, larger size
+- [x] Gallery image spacing — increased gap between images (4px to 14px)
+- [x] Created `images/` directory and moved `tylertst.jpg` into it
+- [x] Updated all image `src` paths to point to `images/` folder
+
+---
+
+## Still Needs Work
+
+- [ ] **Hero title** — `index.html` line 37 still has placeholder text ("Test test test"), needs real headline copy from Tyler
+- [ ] **Real photos** — all pages except one gallery item still use `.photo-placeholder` divs; need Tyler's actual photos dropped into `images/` and wired up
+  - Home featured grid: 3 placeholders
+  - Home about section: 1 portrait placeholder
+  - Gallery: 7 remaining placeholder slots
+  - About page: 1 portrait placeholder
+- [ ] **Booking form backend** — form is built but not connected; needs a Formspree account, a form ID copied in, and the `action` attribute added to the `<form>` tag in `book.html` (setup instructions are in a comment around line 66)
+- [ ] **Wood background texture** — original notes mentioned Tyler would share a wood background image; not yet incorporated
+- [ ] **Social links** — footer has social icon placeholders; real URLs need to be filled in
+- [ ] **About page bio** — copy is placeholder/generic; should be replaced with Tyler's actual bio
+
+---
+
+## Notes
+
+- All images should go in the `images/` folder and be referenced as `src="images/filename.jpg"`
+- The gallery filter works off `data-category="wildlife"`, `"nature"`, or `"portraits"` on each `.gallery-item`
+- Google Fonts loaded: Lobster, Caveat, Lexend
+- Color palette: obsidian background, gold accents (#b49464), forest green (#4a7c59)
