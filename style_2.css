@@ -664,12 +664,12 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
   columns: 3;
-  column-gap: 4px;
+  column-gap: 14px;
 }
 
 .gallery-item {
   break-inside: avoid;
-  margin-bottom: 4px;
+  margin-bottom: 14px;
   overflow: hidden;
   border-radius: 1px;
   position: relative;
