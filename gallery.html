@@ -41,15 +41,12 @@
 
     <!--
       TO ADD PHOTOS:
-      Replace each .photo-placeholder div with: <img src="images/your-photo.jpg" alt="Description" />
-      Keep data-category set to "wildlife", "nature", or "portraits"
+      1. Drop the image file into the images/ folder
+      2. Add one entry to images/photos.json — the gallery and home page update automatically
+      Example entry: { "file": "photo.jpg", "category": "wildlife", "alt": "Description", "label": "Wildlife" }
+      Categories: wildlife | nature | portraits
     -->
     <div class="gallery-grid">
-
-      <div class="gallery-item" data-category="wildlife">
-        <img src="images/tylertst.jpg" alt="Bison grazing on a green meadow with pine trees and mountain backdrop" />
-        <span class="gallery-item-label">Wildlife</span>
-      </div>
 
       <div class="gallery-item" data-category="nature">
         <div class="photo-placeholder" style="min-height:200px;">

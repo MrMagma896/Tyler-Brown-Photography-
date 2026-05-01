@@ -37,6 +37,7 @@ A multi-page photography portfolio website for Tyler Brown, built with plain HTM
 - [x] Gallery image spacing — increased gap between images (4px to 14px)
 - [x] Created `images/` directory and moved `tylertst.jpg` into it
 - [x] Updated all image `src` paths to point to `images/` folder
+- [x] Auto-updating photo system — adding an entry to `images/photos.json` now automatically populates both the gallery and the "Recent Photography" section on the home page
 
 ---
 
@@ -55,9 +56,25 @@ A multi-page photography portfolio website for Tyler Brown, built with plain HTM
 
 ---
 
+## How to Add a Photo
+
+1. Drop the image file into the `images/` folder
+2. Open `images/photos.json` and add one entry at the top of the array:
+```json
+{
+  "file": "your-photo.jpg",
+  "category": "wildlife",
+  "alt": "Describe what's in the photo",
+  "label": "Wildlife"
+}
+```
+3. That's it — the gallery page and the "Recent Photography" section on the home page update automatically. The first 3 entries in the JSON are what show on the home page, so put the best/newest photos at the top.
+
+Valid categories: `wildlife` | `nature` | `portraits`
+
+---
+
 ## Notes
 
-- All images should go in the `images/` folder and be referenced as `src="images/filename.jpg"`
-- The gallery filter works off `data-category="wildlife"`, `"nature"`, or `"portraits"` on each `.gallery-item`
 - Google Fonts loaded: Lobster, Caveat, Lexend
 - Color palette: obsidian background, gold accents (#b49464), forest green (#4a7c59)

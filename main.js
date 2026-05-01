@@ -41,23 +41,25 @@ if (lightbox) {
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 }
 
-document.querySelectorAll('.gallery-item, .photo-card').forEach(item => {
-  item.addEventListener('click', () => {
+// Event delegation so dynamically added photos open the lightbox too
+document.addEventListener('click', e => {
+  const item = e.target.closest('.gallery-item, .photo-card');
+  if (item) {
     const img = item.querySelector('img');
     if (img) openLightbox(img.src);
-  });
+  }
 });
 
 // ── GALLERY FILTER ──
-const filterBtns  = document.querySelectorAll('.filter-btn');
-const galleryItems = document.querySelectorAll('.gallery-item');
+const filterBtns = document.querySelectorAll('.filter-btn');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const f = btn.dataset.filter;
-    galleryItems.forEach(item => {
+    // Query live so dynamically added items are included
+    document.querySelectorAll('.gallery-item').forEach(item => {
       item.style.display = (f === 'all' || item.dataset.category === f) ? 'block' : 'none';
     });
   });
@@ -77,6 +79,48 @@ document.addEventListener('dragstart', e => {
 });
 
 document.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
+
+// ── PHOTO REGISTRY ──
+// To add a photo: drop the file in images/, then add one entry to images/photos.json.
+// The gallery and "Recent Photography" section update automatically.
+async function loadPhotos() {
+  try {
+    const res = await fetch('images/photos.json');
+    if (!res.ok) return;
+    const photos = await res.json();
+    if (!Array.isArray(photos) || photos.length === 0) return;
+
+    // Home page — replace placeholder cards in the featured grid with real photos
+    const featuredGrid = document.querySelector('.featured-grid');
+    if (featuredGrid) {
+      const cards = featuredGrid.querySelectorAll('.photo-card');
+      photos.slice(0, 3).forEach((photo, i) => {
+        if (cards[i]) {
+          cards[i].innerHTML = `
+            <img src="images/${photo.file}" alt="${photo.alt}" />
+            <div class="photo-card-overlay"><span class="photo-card-label">${photo.label}</span></div>
+          `;
+        }
+      });
+    }
+
+    // Gallery page — populate the full grid from all photos
+    const galleryGrid = document.querySelector('.gallery-grid');
+    if (galleryGrid) {
+      galleryGrid.innerHTML = photos.map(p => `
+        <div class="gallery-item fade-in" data-category="${p.category}">
+          <img src="images/${p.file}" alt="${p.alt}" />
+          <span class="gallery-item-label">${p.label}</span>
+        </div>
+      `).join('');
+      galleryGrid.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }
+  } catch {
+    // photos.json missing or unreadable — static placeholders remain visible
+  }
+}
+
+loadPhotos();
 
 // ── CONTACT FORM ──
 const contactForm = document.getElementById('contact-form');
